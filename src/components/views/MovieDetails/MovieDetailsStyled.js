@@ -1,9 +1,22 @@
 import styled from 'styled-components';
 
-export const NavigationContainer = styled.nav`
-  ul {
-    display: flex;
-    list-style: none;
+export const MovieDetailsContainer = styled.div`
+  padding: 20px;
+
+  .btn {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3483eb;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    box-shadow: 1px 1px 3px black;
+  }
+
+  .subTitle {
+    margin-bottom: 20px;
   }
 
   .navLink {

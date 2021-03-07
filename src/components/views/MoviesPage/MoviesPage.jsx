@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { searchMovies } from '../../../services/fetch-api';
 import MoviesList from '../../MoviesList/MoviesList';
+import { SearchForm } from './MoviesPageStyled';
 
 export default class MoviesPage extends Component {
   state = {
@@ -40,18 +41,21 @@ export default class MoviesPage extends Component {
   render() {
     const { query, movies } = this.state;
     return (
-      <div>
+      <SearchForm>
         <form onSubmit={this.onSubmit}>
           <input
+            className="input"
             type="text"
             name="query"
             value={query}
             onChange={this.onHandleChange}
           />
-          <button type="submit">Search</button>
+          <button type="submit" className="btn">
+            Search
+          </button>
         </form>
         <MoviesList movies={movies} />
-      </div>
+      </SearchForm>
     );
   }
 }

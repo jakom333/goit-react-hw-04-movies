@@ -16,7 +16,7 @@ const MovieDetails = lazy(() =>
 
 const App = () => {
   return (
-    <div>
+    <>
       <AppBar />
       <Suspense
         fallback={
@@ -30,7 +30,7 @@ const App = () => {
           <Redirect to={routes.home} />
         </Switch>
       </Suspense>
-    </div>
+    </>
   );
 };
 

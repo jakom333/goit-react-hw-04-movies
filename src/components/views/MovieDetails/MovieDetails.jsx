@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Link, NavLink, Route, Switch } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import { fetchData } from '../../../services/fetch-api';
 import Cast from '../../Cast/Cast';
 import MovieCard from '../../MovieCard/MovieCard';
 import Reviews from '../../Reviews/Reviews';
 import routes from '../../../routes';
+import { MovieDetailsContainer } from './MovieDetailsStyled';
 
 export default class MovieDetails extends Component {
   state = {
@@ -27,17 +28,20 @@ export default class MovieDetails extends Component {
   };
 
   render() {
-    const { movie } = this.state;
+    const { movie, cast, reviews } = this.state;
     const { url, path } = this.props.match;
     return (
-      <>
-        <button type="button" onClick={this.handleGoBack}>
+      <MovieDetailsContainer>
+        <button className="btn" type="button" onClick={this.handleGoBack}>
           Go back
         </button>
         <MovieCard {...movie} />
         <div>
-          <h4>Additional Information</h4>
+          <h4 className="subTitle">Additional Information</h4>
           <NavLink
+            exact
+            className="navLink"
+            activeClassName="activeNavLink"
             to={{
               pathname: `${url}/cast`,
               state: { from: this.props.location?.state?.from },
@@ -46,6 +50,9 @@ export default class MovieDetails extends Component {
             Cast
           </NavLink>
           <NavLink
+            exact
+            className="navLink"
+            activeClassName="activeNavLink"
             to={{
               pathname: `${url}/reviews`,
               state: { from: this.props.location?.state?.from },
@@ -55,16 +62,13 @@ export default class MovieDetails extends Component {
           </NavLink>
         </div>
         <Switch>
-          <Route
-            path={`${path}/cast`}
-            render={props => <Cast cast={this.state.cast} />}
-          />
+          <Route path={`${path}/cast`} render={props => <Cast cast={cast} />} />
           <Route
             path={`${path}/reviews`}
-            render={props => <Reviews reviews={this.state.reviews} />}
+            render={props => <Reviews reviews={reviews} />}
           />
         </Switch>
-      </>
+      </MovieDetailsContainer>
     );
   }
 }

@@ -1,13 +1,14 @@
 import React from 'react';
+import { ReviewsContainer } from './ReviewsStyled';
 
 const Reviews = ({ reviews }) => {
   return (
-    <>
+    <ReviewsContainer>
       {reviews.length ? (
-        <ul>
+        <ul className="list">
           {reviews.map(({ id, author, content }) => (
-            <li key={id}>
-              <h3>Author: {author}</h3>
+            <li key={id} className="listItem">
+              <h3 className="author">Author: {author}</h3>
               <p>{content}</p>
             </li>
           ))}
@@ -15,7 +16,7 @@ const Reviews = ({ reviews }) => {
       ) : (
         <p>We don't have any reviews for this movie</p>
       )}
-    </>
+    </ReviewsContainer>
   );
 };
 
