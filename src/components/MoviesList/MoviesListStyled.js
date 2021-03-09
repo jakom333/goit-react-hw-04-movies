@@ -21,7 +21,9 @@ export const MovieListContainer = styled.ul`
 
   .listTitle {
     text-align: center;
+    vertical-align: middle;
     padding: 15px;
+    max-width: 260px;
     text-transform: uppercase;
     font-weight: 700;
     color: black;

@@ -32,7 +32,7 @@ export const MovieDetailsContainer = styled.div`
   }
 
   .activeNavLink {
-    color: #f5ec42;
-    box-shadow: 0 0 10px #f5ec42;
+    color: #0ac700;
+    box-shadow: 0 0 15px #0ac700;
   }
 `;
